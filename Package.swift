@@ -9,16 +9,21 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        .library(name: "WeScan", targets: ["WeScan"])
+        .library(
+            name: "WeScan",
+            type: .dynamic,
+            targets: ["WeScan"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.10.0")
     ],
     targets: [
-        .target(name: "WeScan",
-                resources: [
-                    .process("Resources")
-                ]),
+        .target(
+            name: "WeScan",
+            dependencies: [],
+            path: "Sources"
+        ),
         .testTarget(
             name: "WeScanTests",
             dependencies: [
